@@ -201,8 +201,9 @@
                         $(this).parent().toggleClass("mob-close mob-open");
                         $("body").toggleClass("mob-close mob-open");
                     });
-                    $(".navbar .action-button a").click(function() {
-                        $(this).parent().parent().removeClass("mob-open").addClass("mob-close");
+                    $(".navbar a").click(function() {
+                        $(this).parent().removeClass("mob-open").addClass("mob-close");
+                        $('body').removeClass("mob-open").addClass("mob-close");
                     });
                     
                     $(".dropdown-container .item .heading").click(function() {
