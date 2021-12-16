@@ -1,0 +1,307 @@
+body{
+    width: 100vw;
+    margin: 0;
+    background: black;
+    overflow-x: hidden;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #f6f6f6;
+    /* font-family: "Open Sans";
+    font-weight: 300; */
+}
+
+/* vuejs - fade transition */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+/* fade transition end */
+
+/* page wrapper */
+.wrapper{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-size: contain;
+    background-position: center -50px;
+}
+
+.wrapper::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    position: fixed;
+    top: 45%;
+    right: 10%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    transform: translate(0, -50%);
+    transition: right 0.3s ease-out;
+    z-index: 3;
+}
+
+.navbar .action-button{ display: none }
+
+.navbar a{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    color: #f6f6f6;
+    overflow: hidden;
+}
+
+.navbar a .text{
+    position: relative;
+    margin: 0.7rem;
+    font-size: 1.2rem;
+    font-family: "Roboto Mono";
+    font-weight: 700;
+    color: inherit;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease-out;
+}
+.navbar.Home a:hover .text{
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.navbar a .indic{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 2px 5px 0 2.5rem;
+    color: inherit;
+    border: 3px solid currentColor;
+    border-radius: 100%;
+    transition: background-color 0.2s, opacity 0.2s, box-shadow 0.2s;
+}
+.navbar a.router-link-exact-active .indic{
+    background-color: currentColor;
+}
+
+.navbar.Home a:hover .indic{
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2), 2px 2px 6px rgba(0, 0, 0, 0.2) inset;
+}
+.navbar.Home a.router-link-exact-active:hover .indic{
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* navbar for non-hompages */
+.navbar:not(.Home){
+    right: 5%;
+    transition: right 0.3s ease-in, opacity 0.3s;
+}
+
+.navbar:not(.Home) a .text{
+    margin-right: -50px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.2s ease-in;
+}
+.navbar:not(.Home):hover a .text{
+    margin-right: 0;
+    opacity: 0.6;
+}
+.navbar:not(.Home) a:hover .text{
+    opacity: 1;
+}
+
+.navbar:not(.Home) a .indic{
+    opacity: 0.6;
+}
+.navbar:not(.Home):hover a .indic{
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15), 2px 2px 6px rgba(0, 0, 0, 0.15) inset;
+    opacity: 1;
+}
+
+.navbar:not(.Home):hover a.router-link-exact-active .indic{ background-color: currentColor; box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15)}
+
+/* the photo + text on landing = banner */
+.banner{
+    position: absolute;
+    left: 10%;
+    bottom: 25%;
+    z-index: 1;
+}
+
+.banner .pic{
+    position: relative;
+    display: block;
+    left: 0;
+    width: 180px;
+    height: 180px;
+    margin: 50px 0;
+    border-radius: 100%;
+}
+
+.banner, .banner .pic{
+    transition: all 0.3s 0.2s ease-out;
+}
+
+.banner .text{
+    position: relative;
+    font-family: "Open Sans";
+    font-weight: 800;
+    font-size: 4.7rem;
+    letter-spacing: 0.1rem;
+    color: #F6F6F6;
+    transition: opacity 0.3s ease-out;
+}
+
+.banner .text::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    width: 10px;
+    height: 100px;
+    background-color: #40FFA6;
+    transition: all 0.2s;
+}
+
+.banner:not(.Home){
+    left: 50%;
+    bottom: 40%;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+
+.banner:not(.Home) .pic{
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.banner:not(.Home) .text::before{
+    bottom: -100px;
+    opacity: 0;
+}
+
+.banner.Contact{
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* common rules for all sections */
+section{
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 15% 10% 15%;
+}
+
+/* scroll down arrow indicator on non-homepages */
+.arrow{
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    font-family: "Open Sans";
+    font-weight: 800;
+    font-size: 3rem;
+    transform: translate(-50%, 0);
+    animation: arrow-anim 3s infinite;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes arrow-anim{
+    0%   { opacity: 0; bottom: calc(10% + 50px); }
+    30%  { opacity: 0; bottom: calc(10% + 50px); }
+    55%  { opacity: 1; bottom: calc(10% + 50px); }
+    80%  { opacity: 1; bottom: 10%; }
+    90%  { opacity: 1; bottom: 10%; }
+    100% { opacity: 0; bottom: 10%; }
+}
+
+/* dropdown style containers for pages with lists (similar to mobile view of wikipedia) */
+
+/* headings */
+.dropdown-container .item .heading{
+    display: inline-block;
+    margin: 1rem 0;
+    font-family: "Roboto Mono";
+    font-size: 2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* the dropdown arrow next to heading */
+.dropdown-container .gg-chevron-down-o{
+    display: inline-block;
+    margin-left: 2rem;
+    color: #f6f6f6;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdown-container .heading:hover .gg-chevron-down-o{
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+    color: #000000;
+}
+
+/* the content after heading */
+.dropdown-container .item .content{
+    display: block;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+.dropdown-container .item .content *{
+    font-family: "Noto Sans Display";
+    font-weight: 400;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+}
+
+/* open and closed states */
+.dropdown-container .item.close .content{
+    padding: 0 2rem;
+    max-height: 0;
+    opacity: 0;
+}
+
+.dropdown-container .item.open .content{
+    /* margin: 1.2rem 2rem 2.5rem 2rem; */
+    padding: 0rem 2rem 2.5rem 2rem;
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* special elements inside .content */
+.dropdown-container .item .content .sub-heading{
+    display: block;
+    font-family: "Open Sans";
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin: 1rem 0;
+}
+
+.dropdown-container .item .content ul,
+.dropdown-container .item .content ol
+{
+    margin-left: 30px;
+}

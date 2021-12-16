@@ -1,0 +1,43 @@
+<div class="wrapper" style="background-image: url('../assets/collage-ceremonies-2.png');">
+    <link v-for="src in styles" rel="stylesheet" :href="src">
+
+    <section class="landing">
+        <div class="arrow">↓</div>
+    </section>
+
+    <section class="block-info">
+        <div class="block">
+            <img src="../assets/isi.jpg" alt="ISI, Kolkata, India" class="green">
+            <div class="text">
+                Dr. Sriparna Saha received the M.Tech and Ph.D. degrees in computer science from Indian Statistical Institute, Kolkata, India, in 2005 and 2011, respectively.
+            </div>
+        </div>
+        <div class="block">
+            <img src="../assets/iitp.jpg" alt="IIT Patna, Bihta, India" class="green">
+            <div class="text">
+                She is currently an Associate Professor in the Department of Computer Science and Engineering, Indian Institute of Technology Patna, India.
+                <!-- <a href="/work">MORE ABOUT WORK</a> -->
+                <router-link to="/work">More about: <span>Work</span></router-link>
+            </div>
+        </div>
+        <div class="block">
+            <img src="../assets/pages_bg.jpg" alt="Academia" class="green">
+            <div class="text">
+                She is the author of a book published by Springer-Verlag. She has authored or coauthored more than 290 papers.
+                <br><br>
+                Her current research interests include deep learning, natural language processing, machine learning, information extraction, text mining, bioinformatics and multiobjective optimization.
+                <br><br>
+                Her h-index is 28 and total citation count of her papers is 4915 (according to Google scholar).
+                
+                <router-link to="/academia">More about: <span>Academia</span></router-link>
+            </div>
+        </div>
+        <div class="block">
+            <img src="../assets/awards.png" alt="Awards" class="green">
+            <div class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, nam. Maiores, et alias. Reiciendis facilis neque eligendi quia iste saepe?
+                <router-link to="/awards">More about: <span>Awards</span></router-link>
+            </div>
+        </div>
+    </section>
+</div>
