@@ -1,0 +1,74 @@
+.wrapper{
+    background-color: #346D52
+}
+
+.wrapper::before{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(55, 125, 91, 0.76) 80%, rgb(83, 183, 136))
+}
+
+.block-info{
+    position: relative;
+    left: 50%;
+    width: 100%;
+    max-width: 1500px;
+    transform: translate(-50%, 0);
+}
+
+.block-info .block{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin: 100px 5%;
+}
+
+.block-info .block:nth-child(odd){
+    flex-direction: row;
+}
+.block-info .block:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.block-info .block img{
+    width: 50%;
+    max-width: 400px;
+    color: transparent;
+}
+.block-info .block:nth-child(odd) img{
+    /* box-shadow: -6px 6px 0 currentColor; */
+    padding-right: 2.5rem
+}
+.block-info .block:nth-child(even) img{
+    /* box-shadow: 6px 6px 0 currentColor; */
+    padding-left: 2.5rem;
+}
+
+.block-info .block img.green{ color: #57BB8C }
+
+.block-info .block .text{
+    /* padding: 0 2.5rem; */
+    font-family: "Noto Sans Display";
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.block-info .block .text a{
+    display: block;
+    margin: 1rem 0;
+    font-weight: 700;
+    font-family: "Open Sans";
+}
+
+.block-info .block .text a span{
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.2s;
+}
+.block-info .block .text a:hover span{
+    text-decoration-color: #f6f6f6;
+}

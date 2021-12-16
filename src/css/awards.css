@@ -1,0 +1,16 @@
+.wrapper {
+    background-color: #D1A54C
+}
+
+.wrapper::before{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(203, 124, 71, 0.76) 80%, rgb(255, 160, 97));
+}
+
+.content{
+    font-family: "Noto Sans Display";
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+    text-align: justify;
+}
