@@ -8,19 +8,21 @@
 
 .block-info{
     position: relative;
-    left: 50%;
     width: 100%;
-    max-width: 1500px;
-    transform: translate(-50%, 0);
+    padding: 100px 0 10% 0;
 }
 
 .block-info .block{
     display: flex;
     position: relative;
+    left: 50%;
+    width: 90%;
+    margin: 100px 0;
+    max-width: 1000px;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: nowrap;
-    margin: 100px 5%;
+    transform: translate(-50%, 0);
 }
 
 .block-info .block:nth-child(odd){
