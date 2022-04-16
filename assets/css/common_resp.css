@@ -124,7 +124,8 @@
 
     .navbar a .text{
         font-size: 1.5rem;
-        margin: 1rem;
+        margin: 1rem !important;
+        opacity: 0.8 !important;
     }
 
     .navbar a .text::before{
@@ -163,7 +164,12 @@
         bottom: auto;
     }
 
-    .banner .text{ font-size: 3.6rem }
+    .banner .text{
+        position: absolute;
+        left: 50%;
+        font-size: 3.6rem;
+        transform: translate(-50%, 0);
+    }
     .banner .text::before{ display: none; }
 }
 

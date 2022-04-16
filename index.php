@@ -11,8 +11,8 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.min.js"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,8 @@
         referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/common_resp.css">
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/common_resp.css">
     <link href='https://css.gg/chevron-down-o.css' rel='stylesheet'>
 
 </head>
@@ -46,7 +46,7 @@
             <router-link to="/contact"><span class="text"> Contact </span><span class="indic"></span></router-link>
         </nav>
         <div :class="['banner', page.title]">
-            <img class="pic" src="../assets/sriparna.png">
+            <img class="pic" src="./assets/images/sriparna.png">
             <transition name="fade" mode="out-in">
                 <h1 class="text" :key="this.page.title">{{ this.page.customBannerText ? this.page.customBannerText : "&nbsp;" }}</h1>
             </transition>
@@ -76,7 +76,7 @@
                     title: "Home",
                     customBannerText: "Dr. Sriparna Saha",
                     styles: [
-                        "./css/home.css"
+                        "./assets/css/home.css"
                     ]
                 }
             },
@@ -93,8 +93,8 @@
                 return {
                     title: "About",
                     styles: [
-                        "./css/about.css",
-                        "./css/about_resp.css"
+                        "./assets/css/about.css",
+                        "./assets/css/about_resp.css"
                     ]
                 }
             },
@@ -111,7 +111,7 @@
                 return {
                     title: "Academia",
                     styles: [
-                        "./css/acads.css"
+                        "./assets/css/acads.css"
                     ]
                 }
             },
@@ -128,7 +128,7 @@
                 return {
                     title: "Work",
                     styles: [
-                        "./css/work.css"
+                        "./assets/css/work.css"
                     ]
                 }
             },
@@ -145,7 +145,7 @@
                 return {
                     title: "Awards",
                     styles: [
-                        "./css/awards.css"
+                        "./assets/css/awards.css"
                     ]
                 }
             },
@@ -162,7 +162,7 @@
                 return {
                     title: "Contact",
                     styles: [
-                        "./css/contact.css"
+                        "./assets/css/contact.css"
                     ]
                 }
             },

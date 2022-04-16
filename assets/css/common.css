@@ -239,7 +239,7 @@ section{
 /* dropdown style containers for pages with lists (similar to mobile view of wikipedia) */
 
 /* headings */
-.dropdown-container .item .heading{
+.dropdown-container .item > .heading{
     display: inline-block;
     margin: 1rem 0;
     font-family: "Roboto Mono";
@@ -256,20 +256,22 @@ section{
     cursor: pointer;
     transition: all 0.2s;
 }
+.dropdown-container .item.close > .heading > .gg-chevron-down-o{ transform: rotate(0deg) }
+.dropdown-container .item.open > .heading > .gg-chevron-down-o{ transform: rotate(180deg) }
 
-.dropdown-container .heading:hover .gg-chevron-down-o{
+.dropdown-container .heading:hover > .gg-chevron-down-o{
     background-color: #f6f6f6;
     border-color: #f6f6f6;
     color: #000000;
 }
 
 /* the content after heading */
-.dropdown-container .item .content{
+.dropdown-container .item > .content{
     display: block;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     overflow: hidden;
 }
-.dropdown-container .item .content *{
+.dropdown-container .item > .content *{
     font-family: "Noto Sans Display";
     font-weight: 400;
     font-size: 1.2rem;
@@ -278,30 +280,43 @@ section{
 }
 
 /* open and closed states */
-.dropdown-container .item.close .content{
+.dropdown-container .item.close > .content{
     padding: 0 2rem;
-    max-height: 0;
+    height: 0;
     opacity: 0;
 }
 
-.dropdown-container .item.open .content{
-    /* margin: 1.2rem 2rem 2.5rem 2rem; */
+.dropdown-container .item.open > .content{
     padding: 0rem 2rem 2.5rem 2rem;
-    max-height: 500px;
     opacity: 1;
 }
 
 /* special elements inside .content */
-.dropdown-container .item .content .sub-heading{
+.dropdown-container .item > .content ul,
+.dropdown-container .item > .content ol
+{
+    margin-left: 40px;
+}
+
+.dropdown-container li.spaced:not(.dropdown-container li:last-child){
+    margin: 40px 0;
+}
+
+.dropdown-container .item > .content .sub-heading{
     display: block;
     font-family: "Open Sans";
     font-weight: 700;
     letter-spacing: 0.2rem;
     margin: 1rem 0;
+    text-transform: uppercase;
 }
 
-.dropdown-container .item .content ul,
-.dropdown-container .item .content ol
-{
-    margin-left: 30px;
+.dropdown-container .item > .content .quote{
+    display: block;
+    font-weight: 500;
+}
+.dropdown-container .item > .content .quote-sub{
+    display: block;
+    font-style: italic;
+    font-weight: 100;
 }

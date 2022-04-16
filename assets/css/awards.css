@@ -14,3 +14,7 @@
     line-height: 2rem;
     text-align: justify;
 }
+
+.list-page li.spaced{
+    margin: 40px 0;
+}
