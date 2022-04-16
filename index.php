@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="./assets/css/common.css">
     <link rel="stylesheet" href="./assets/css/common_resp.css">
     <link href='https://css.gg/chevron-down-o.css' rel='stylesheet'>
+    <link href='https://css.gg/external.css' rel='stylesheet'>
 
 </head>
 <body class="mob-close">
@@ -45,6 +46,10 @@
             <router-link to="/awards"><span class="text"> Awards </span><span class="indic"></span></router-link>
             <router-link to="/contact"><span class="text"> Contact </span><span class="indic"></span></router-link>
         </nav>
+        <div class="modal">
+            <div class="action-button"></div>
+            <div class="content"></div>
+        </div>
         <div :class="['banner', page.title]">
             <img class="pic" src="./assets/images/sriparna.png">
             <transition name="fade" mode="out-in">
@@ -211,6 +216,38 @@
 
                         item.toggleClass("open close");
                     });
+
+                    $('.modal > .action-button').click((e) => close_modal())
+
+                    function open_modal(content){
+                        $('.modal').removeClass("close");
+                        $('.modal').addClass("open");
+                        $('.modal > .content').empty().append(content);
+                        $('body').addClass('modal-open');
+                    }
+
+                    function close_modal(){
+                        $('.modal').removeClass("open");
+                        $('.modal').addClass("close");
+                        $('.modal > .content').empty();
+                        $('body').removeClass('modal-open');
+                    }
+
+                    $("ul, ol").each((i, el) => {
+                        const items = $(el).children().clone();
+                        const limit = 5;
+                        if(items.length > limit){
+                            $(el).children().each((j, elm) => {
+                                if (j + 1> limit){
+                                    elm.remove();
+                                }
+                            })
+                            $(el).append("<div class=\"see-more\">See More</div>");
+                            $(el).children('.see-more').click((e) => {
+                                open_modal(items);
+                            });
+                        }
+                    })
 
                     // $(window).scroll(() => {
                     //     let scrollFraction = $(window).scrollTop()/window.outerHeight;

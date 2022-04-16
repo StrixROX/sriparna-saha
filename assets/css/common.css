@@ -235,6 +235,90 @@ section{
     90%  { opacity: 1; bottom: 10%; }
     100% { opacity: 0; bottom: 10%; }
 }
+/* modal */
+body.modal-open{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.modal.open,
+.modal.close{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 150px 8%;
+    transition: background-color 0.2s;
+    pointer-events: none;
+    font-family: "Open Sans";
+    overflow: auto;
+    z-index: 4;
+}
+.modal.open{ background-color: rgb(32, 32, 32); pointer-events: all; }
+.modal.close{ background-color: transparent; pointer-events: none; }
+
+/* close button */
+.modal .action-button{
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 6%;
+    transition: opacity 0.2s, border-color 0.2s;
+    opacity: 0.6;
+    cursor: pointer;
+    pointer-events: all;
+}
+.modal .action-button:hover{ opacity: 1 }
+
+.modal.open .action-button{
+    width: 50px;
+    height: 50px;
+    border: 2px solid #f6f6f6;
+    opacity: 1;
+    border-radius: 100%;
+}
+.modal.open .action-button::after{
+    content: '✕';
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal.close .action-button{
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    border-radius: 100%;
+    opacity: 0;
+}
+.modal.close .action-button:hover{
+    border-color: #f6f6f6;
+}
+.modal.close .action-button::before,
+.modal.close .action-button::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: #f6f6f6;
+    transform: translate(-50%, -50%);
+}
+.modal.close .action-button::before{
+    height: 12px;
+    background: none;
+    border-top: 2px solid #f6f6f6;
+    border-bottom: 2px solid #f6f6f6;
+}
 
 /* dropdown style containers for pages with lists (similar to mobile view of wikipedia) */
 
@@ -271,7 +355,8 @@ section{
     /* transition: all 0.3s; */
     overflow: hidden;
 }
-.dropdown-container .item > .content *{
+.dropdown-container .item > .content *,
+.modal{
     font-family: "Noto Sans Display";
     font-weight: 400;
     font-size: 1.2rem;
@@ -298,7 +383,9 @@ section{
     margin-left: 40px;
 }
 
-.dropdown-container li.spaced:not(.dropdown-container li:last-child){
+.dropdown-container li.spaced:not(.dropdown-container li:last-child),
+.modal li.spaced:not(.modal li:last-child)
+{
     margin: 40px 0;
 }
 
@@ -311,12 +398,37 @@ section{
     text-transform: uppercase;
 }
 
-.dropdown-container .item > .content .quote{
-    display: block;
+.dropdown-container .item > .content .quote,
+.modal .quote
+{
     font-weight: 500;
 }
-.dropdown-container .item > .content .quote-sub{
+.dropdown-container .item > .content .quote-sub,
+.modal .quote-sub
+{
     display: block;
     font-style: italic;
     font-weight: 100;
+}
+
+.dropdown-container .see-more{
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: right;
+    margin: 0 0 40px 0;
+}
+
+button.outline{
+    margin: 15px 0;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 5px 20px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+button.outline:hover, button.outline:hover *{
+    background: white;
+    color: rgb(32, 32, 32);
 }
