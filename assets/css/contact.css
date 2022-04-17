@@ -51,6 +51,17 @@
     font-weight: 400;
 }
 
+.contact-card .links a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    margin: 0 5px;
+    border: 2px solid white;
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+
 @media (max-width: 650px){
     .landing{ padding: 100px 0% 10% 0%; }
 
